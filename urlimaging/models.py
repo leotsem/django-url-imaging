@@ -103,7 +103,10 @@ class CommandRunner:
 					url = re.sub(op['regex'], '', url)
 					did_op = True
 					break
-
+		
+		# add default domain setting to avoid including domain in every resize request
+		if not settings.IMAGE_DEFAULT_DOMAIN in url:
+			url = settings.IMAGE_DEFAULT_DOMAIN + '/' + url
 
 		if self.todo and valid_image_path(url):
 			self.url = sanitize_url(url)
