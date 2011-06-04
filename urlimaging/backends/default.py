@@ -100,7 +100,7 @@ class LocalImageStorage(ImageStorage):
 
 	def get_image_url(self, hash):
 		# XXX check for a setting
-		return settings.MEDIA_URL + "/" + hash
+		return settings.IMAGE_MEDIA_URL + "/" + hash
 
 
 	def get_required_settings(self):
