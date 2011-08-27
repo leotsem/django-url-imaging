@@ -207,9 +207,9 @@ class CommandRunner:
 			image.site = site
 			check_remote_image = True
 		else:
-			two_hours_ago = datetime.datetime.now() - datetime.timedelta(hours=2)
-			check_remote_image = image.last_checked < two_hours_ago
-
+			# two_hours_ago = datetime.datetime.now() - datetime.timedelta(hours=2)
+			# check_remote_image = image.last_checked < two_hours_ago
+			check_remote_image = False # temporary hack to avoid 404 errors
 
 		if check_remote_image and self.get_image(image):
 			# apply all of the transformations
